@@ -5,9 +5,9 @@ import 'package:redux/redux.dart';
 import 'package:redux_api/actions/user_actions.dart';
 import 'package:redux_api/models/user_model.dart';
 import 'package:http/http.dart' as http;
+import 'package:redux_api/reducers/user_reducer.dart';
 
-void thunkMiddleware(
-    Store<List<User>> store, action, NextDispatcher next) async {
+void thunkMiddleware(Store<AppState> store, action, NextDispatcher next) async {
   if (action is FetchUserListAction) {
     try {
       var response = await http.get(
